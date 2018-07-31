@@ -87,12 +87,12 @@ class LocationPage(webapp2.RequestHandler):
             address = self.request.get('address'),
             comment = self.request.get('comment'),
             created_at = datetime.datetime.now()).put()
-        self.redirect('/')
+        self.redirect('/map')
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/welcome', WelcomePage),
     ('/map', MapPage),
     ('/locations', LocationPage),
-    ('/updated_list', UpdatedMapPage),
+    ('/updated_list', UpdatedMapPage)
 ], debug=True)

@@ -7,4 +7,3 @@ class Locations(ndb.Model):
     longitude = ndb.FloatProperty(required=False)
     latitude = ndb.FloatProperty(required=False)
     created_at = ndb.DateTimeProperty(required=False)
-

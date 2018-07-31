@@ -1,0 +1,19 @@
+/* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #map {
+            height: 100%;
+            width: 80%;
+        }
+        #loc_list {
+            flex: 1;
+            height: 100%;
+            padding: 10px;
+            float: left;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        /* Optional: Makes the sample page fill the window. */
