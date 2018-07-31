@@ -6,8 +6,9 @@ handlers:
 - url: /styles
   static_dir: styles
 
-- url: /.*
+- url: .*
   script: main.app
+  login: optional
 
 libraries:
 - name: jinja2
