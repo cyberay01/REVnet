@@ -9,6 +9,14 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 ul {
     list-style-type: none;
+}
+
+#pac-input {
+  height: 4%;
+  width:15%;
+  margin-top: 50px;
+  margin-left: -105px;
 }
