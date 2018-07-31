@@ -57,7 +57,7 @@ class LocationPage(webapp2.RequestHandler):
             street_name1 = self.request.get('street_name1'),
             street_name2 = self.request.get('street_name2'),
             comment = self.request.get('comment')).put()
-        self.redirect('/main')
+        self.redirect('/')
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
