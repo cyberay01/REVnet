@@ -37,16 +37,6 @@ class MapPage(webapp2.RequestHandler):
     def get(self):
         map_template = JINJA_ENVIRONMENT.get_template('templates/map.html')
         self.response.write(map_template.render())
-        locations = Locations.query().fetch()
-        for location in locations:
-            self.response.write(location.host_name)
-            self.response.write(" ")
-            self.response.write(location.street_name1)
-            self.response.write(" ")
-            self.response.write(location.street_name2)
-            self.response.write(" ")
-            self.response.write(location.comment)
-            self.response.write("<br>")
 
 class UpdatedMapPage(webapp2.RequestHandler):
     def get(self):
@@ -57,9 +47,9 @@ class UpdatedMapPage(webapp2.RequestHandler):
         new_map_list = []
         for location in new_map_list:
             new_map_list.append({
-                'host_name': location.host_name
-                'address': location.address
-                'comment': location.comment
+                'host_name': location.host_name,
+                'address': location.address,
+                'comment': location.comment,
             })
         self.response.write(json.dumps(new_map_list))
 
@@ -70,14 +60,14 @@ class LocationPage(webapp2.RequestHandler):
 
     def post(self):
         Locations(host_name=self.request.get('host_name'),
-            street_name1 = self.request.get('street_name1'),
-            street_name2 = self.request.get('street_name2'),
+            address = self.request.get('address'),
             comment = self.request.get('comment')).put()
-        self.redirect('/')
+        self.redirect('/map')
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/welcome', WelcomePage),
     ('/map', MapPage),
     ('/locations', LocationPage),
+    ('/updated_list', UpdatedMapPage)
 ], debug=True)
