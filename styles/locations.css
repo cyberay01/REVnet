@@ -1,0 +1,13 @@
+body {
+  border-style: solid;
+  width: 400px;
+  height: 250px;
+  padding: 50px;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+}
+
+h1 {
+  text-align: center;
+}
