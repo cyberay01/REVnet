@@ -13,12 +13,23 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcome_template = JINJA_ENVIRONMENT.get_template('templates/welcome.html')
-        self.response.write(welcome_template.render())
+        self.response.write(welcome_template.render({'login_url': users.create_login_url('/')}))
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
+        template_var = {}
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            template_var = {
+                "logout_url": logout_url,
+                "nickname": nickname
+            }
+        else:
+            self.redirect('/welcome')
         main_template = JINJA_ENVIRONMENT.get_template('templates/main.html')
-        self.response.write(main_template.render())
+        self.response.write(main_template.render(template_var))
 
 class MapPage(webapp2.RequestHandler):
     def get(self):
@@ -48,8 +59,8 @@ class LocationPage(webapp2.RequestHandler):
         self.redirect('/main')
 
 app = webapp2.WSGIApplication([
-    ('/', WelcomePage),
-    ('/main', MainPage),
+    ('/', MainPage),
+    ('/welcome', WelcomePage),
     ('/map', MapPage),
     ('/locations', LocationPage),
 ], debug=True)
