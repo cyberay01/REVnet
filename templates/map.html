@@ -1,32 +1,16 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="/styles/map.css">
         <title>REV NET Map</title>
         <meta name="viewport" content="initial-scale=1.0">
         <meta charset="utf-8">
-        <style>
-        /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
-        #map {
-            height: 100%;
-            width: 70%;
-            margin-left: auto;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        ul {
-            list-style-type: none;
-        }
-        </style>
     </head>
     <body>
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <div id="map"></div>
-        <script type="text/javascript" src="../scripts/geoloc.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y&callback=initMap"
+        <script type="text/javascript" src="../scripts/search.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y&libraries=places&callback=initMap"
         async defer></script>
         <ul id="list">
         </ul>
