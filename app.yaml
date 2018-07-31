@@ -6,7 +6,10 @@ handlers:
 - url: /styles
   static_dir: styles
 
-- url: .*
+- url: /scripts
+  static_dir: scripts
+
+- url: /.*
   script: main.app
   login: optional
 

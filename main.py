@@ -3,6 +3,7 @@ from google.appengine.api import users
 import jinja2
 import os
 from models import Locations
+import urllib
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -33,15 +34,18 @@ class MainPage(webapp2.RequestHandler):
 
 class MapPage(webapp2.RequestHandler):
     def get(self):
+        map_template = JINJA_ENVIRONMENT.get_template('templates/map.html')
+        self.response.write(map_template.render())
         locations = Locations.query().fetch()
         for location in locations:
             self.response.write(location.host_name)
+            self.response.write(" ")
             self.response.write(location.street_name1)
+            self.response.write(" ")
             self.response.write(location.street_name2)
+            self.response.write(" ")
             self.response.write(location.comment)
-            self.response.write("\n")
-        #map_template = JINJA_ENVIRONMENT.get_template('templates/map.html')
-        #self.response.write(map_template.render())
+            self.response.write("<br>")
 
 class LocationPage(webapp2.RequestHandler):
     def get(self):
@@ -53,7 +57,7 @@ class LocationPage(webapp2.RequestHandler):
             street_name1 = self.request.get('street_name1'),
             street_name2 = self.request.get('street_name2'),
             comment = self.request.get('comment')).put()
-        self.redirect('/map')
+        self.redirect('/main')
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
