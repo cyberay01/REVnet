@@ -5,6 +5,7 @@ import os
 from models import Locations
 import urllib
 import datetime
+import json
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -35,18 +36,20 @@ class MainPage(webapp2.RequestHandler):
 
 class MapPage(webapp2.RequestHandler):
     def get(self):
+        template_var = {}
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            template_var = {
+                "logout_url": logout_url,
+                "nickname": nickname
+            }
+        else:
+            self.redirect('/welcome')
+        locations = Locations.query().fetch(10)
         map_template = JINJA_ENVIRONMENT.get_template('templates/map.html')
-        self.response.write(map_template.render())
-        locations = Locations.query().fetch()
-        for location in locations:
-            self.response.write(location.host_name)
-            self.response.write(" ")
-            self.response.write(location.street_name1)
-            self.response.write(" ")
-            self.response.write(location.street_name2)
-            self.response.write(" ")
-            self.response.write(location.comment)
-            self.response.write("<br>")
+        self.response.write(map_template.render({'locations': locations}))
 
 class UpdatedMapPage(webapp2.RequestHandler):
     def get(self):
@@ -55,24 +58,35 @@ class UpdatedMapPage(webapp2.RequestHandler):
         since_dt = datetime.datetime.fromtimestamp(since)
         new_map = Locations.query(Locations.created_at >= since_dt).fetch()
         new_map_list = []
-        for location in new_map_list:
+        for location in new_map:
             new_map_list.append({
-                'host_name': location.host_name
-                'address': location.address
-                'comment': location.comment
+                'host_name': location.host_name,
+                'address': location.address,
+                'comment': location.comment,
             })
         self.response.write(json.dumps(new_map_list))
 
 class LocationPage(webapp2.RequestHandler):
     def get(self):
+        template_var = {}
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            template_var = {
+                "logout_url": logout_url,
+                "nickname": nickname
+            }
+        else:
+            self.redirect('/welcome')
         locations_template = JINJA_ENVIRONMENT.get_template('templates/locations.html')
         self.response.write(locations_template.render())
 
     def post(self):
         Locations(host_name=self.request.get('host_name'),
-            street_name1 = self.request.get('street_name1'),
-            street_name2 = self.request.get('street_name2'),
-            comment = self.request.get('comment')).put()
+            address = self.request.get('address'),
+            comment = self.request.get('comment'),
+            created_at = datetime.datetime.now()).put()
         self.redirect('/')
 
 app = webapp2.WSGIApplication([
@@ -80,4 +94,5 @@ app = webapp2.WSGIApplication([
     ('/welcome', WelcomePage),
     ('/map', MapPage),
     ('/locations', LocationPage),
+    ('/updated_list', UpdatedMapPage),
 ], debug=True)
