@@ -17,3 +17,10 @@
             flex-direction: row-reverse;
         }
         /* Optional: Makes the sample page fill the window. */
+        #pac-input {
+        height: 4%;
+        width:15%;
+        margin-top: 50px;
+        margin-left: -105px;
+        }
+
