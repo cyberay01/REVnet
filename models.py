@@ -7,4 +7,3 @@ class Locations(ndb.Model):
     comment = ndb.StringProperty(required=False)
     #longitude = ndb.FloatProperty(required=True)
     #latitude = ndb.FloatProperty(required=True)
-
