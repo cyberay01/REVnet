@@ -35,7 +35,7 @@ class LocationPage(webapp2.RequestHandler):
     def get(self):
         locations_template = JINJA_ENVIRONMENT.get_template('templates/locations.html')
         self.response.write(locations_template.render())
-    
+
     def post(self):
         Locations(host_name=self.request.get('host_name'),
             street_name1 = self.request.get('street_name1'),
