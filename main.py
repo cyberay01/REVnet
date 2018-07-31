@@ -4,6 +4,7 @@ import jinja2
 import os
 from models import Locations
 import urllib
+import datetime
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -46,6 +47,21 @@ class MapPage(webapp2.RequestHandler):
             self.response.write(" ")
             self.response.write(location.comment)
             self.response.write("<br>")
+
+class UpdatedMapPage(webapp2.RequestHandler):
+    def get(self):
+        self.response.content_type = 'text/json'
+        since = float(self.request.get('since'))
+        since_dt = datetime.datetime.fromtimestamp(since)
+        new_map = Locations.query(Locations.created_at >= since_dt).fetch()
+        new_map_list = []
+        for location in new_map_list:
+            new_map_list.append({
+                'host_name': location.host_name
+                'address': location.address
+                'comment': location.comment
+            })
+        self.response.write(json.dumps(new_map_list))
 
 class LocationPage(webapp2.RequestHandler):
     def get(self):
