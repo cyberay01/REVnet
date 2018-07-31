@@ -9,18 +9,21 @@
         * element that contains the map. */
         #map {
             height: 100%;
-            width: 70%;
-            margin-left: auto;
+            width: 80%;
         }
-        /* Optional: Makes the sample page fill the window. */
+        #loc_list {
+            flex: 1;
+            height: 100%;
+            padding: 10px;
+            float: left;
+        }
         html, body {
             height: 100%;
-            margin: 0;
-            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
         }
-        ul {
-            list-style-type: none;
-        }
+        /* Optional: Makes the sample page fill the window. */
         </style>
     </head>
     <body>
@@ -28,7 +31,15 @@
         <script type="text/javascript" src="../scripts/geoloc.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y&callback=initMap"
         async defer></script>
-        <ul id="list">
-        </ul>
+        <div id="loc_list">
+            {% for location in locations %}
+            <div class="location">
+                <text class="host_name">Name of Place: {{location.host_name}}</text><br>
+                <text class="address">Address: {{location.address}}</text><br>
+                <text class="comment">Comment: {{location.comment}}</text><br><br>
+            </div>
+            {% endfor %}
+        </div>
+        <script src="/scripts/update_list.js"></script>
     </body>
 </html>
