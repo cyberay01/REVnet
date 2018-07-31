@@ -1,8 +1,26 @@
 <!doctype html>
 <html>
     <head>
+        <link rel="stylesheet" href="/styles/map.css">
         <title>REV NET Map</title>
-    </head>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+   </head>
     <body>
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location here...">
+        <div id="map"></div>
+        <script type="text/javascript" src="../scripts/search.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y&libraries=places&callback=initMap"
+        async defer></script>
+        <div id="loc_list">
+            {% for location in locations %}
+            <div class="location">
+                <text class="host_name">Name of Place: {{location.host_name}}</text><br>
+                <text class="address">Address: {{location.address}}</text><br>
+                <text class="comment">Comment: {{location.comment}}</text><br><br>
+            </div>
+            {% endfor %}
+        </div>
+        <script src="/scripts/update_list.js"></script>
     </body>
 </html>
