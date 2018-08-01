@@ -2,9 +2,12 @@ body {
     font-style: italic;
     font-size: 50px;
     text-align: center;
+    position: fixed;
+    top: 8%;
+    left: 28%;
 }
 #loginbutton {
-    background-color: rgb(20,0,0);opacity:0.2;;
+    background-color: rgb(20,0,0);opacity:0.5;;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -14,4 +17,25 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+#jon {
+  text-align: center;
+  height: 200px;
+  width: 500px;
+  padding-bottom: 15px;
+}
+
+h1{
+  color: grey;
+  text-shadow: 2px 2px lightgrey;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+  padding-bottom: 35px;
+}
+
+h3{
+  color: grey;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  padding-bottom: 45px;
 }
