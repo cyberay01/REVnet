@@ -17,7 +17,7 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    margin-left: -150px;
+    margin-left: -380px;
 }
 #jon {
   text-align: center;
@@ -36,16 +36,20 @@ body {
 
 h2{
   font-family: "ubuntu";
-  margin-left: -150px;
-  margin-top: 180px;
+  margin-left: -320px;
+  margin-top: 130px;
   color: black;
+  font-size: 130px;
 
 }
 
 h3{
   color: black;
   font-family: "Courier New", Courier, monospace;
-  font-size: 25px;
+  font-size: 40px;
   padding-bottom: 45px;
-  margin-left: -160px;
+  margin-left: -360px;
+  text-align: center;
+  font-style: italic;
+  margin-top: -50px;
 }
