@@ -26,6 +26,11 @@ function insert_location(desc){
   container.insertBefore(new_div, container.children[0]);
 }
 
+function clearBox(elementID)
+{
+    document.getElementById(elementID).innerHTML = "";
+}
+
 function refresh_locations(lng, lat) {
   fetch("/updated_list?lng=" + lng + "&lat=" + lat, {'credentials': 'include'} )
     .then((data) => {return data.json();})

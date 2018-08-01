@@ -64,7 +64,7 @@ class UpdatedMapPage(webapp2.RequestHandler): #change since to the lat and lng o
         lat = self.request.get('lat')#'lat' and 'lng' are query
         lng = self.request.get('lng')
         
-        new_locations = Locations.query(Locations.lat < float(lat) + 0.01 and Locations.lat > float(lat) - 0.01 and Locations.lng < float(lng) + 0.01 and Locations.lng > float(lng) - 0.01).fetch()
+        new_locations = Locations.query(Locations.lat <= float(lat) + 0.01 and Locations.lat >= float(lat) - 0.01 and Locations.lng <= float(lng) + 0.01 and Locations.lng >= float(lng) - 0.01).fetch()
         new_location_list = []
         
         #dictionary is converted to json

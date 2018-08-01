@@ -77,6 +77,10 @@ function initMap() {
         position: place.geometry.location
       }));
 
+      clearInterval(update_list);
+      clearBox('loc_list');
+      update_list = setInterval(refresh_locations(markers[markers.length - 1].position.lng(), markers[markers.length - 1].position.lat()));
+
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
