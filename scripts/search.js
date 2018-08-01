@@ -1,4 +1,6 @@
 // creating the callable function for the map
+let update_list;
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -18,6 +20,9 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+
+            update_list = setInterval(refresh_locations(pos.lng, pos.lat), 3000);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
