@@ -2,6 +2,7 @@
     height: 100%;
     width: 80%;
 }
+/* Optional: Makes the sample page fill the window. */
 #loc_list {
     flex: 1;
     height: 100%;
@@ -22,3 +23,43 @@ html, body {
   margin-left: -105px;
 }
 
+h1 {
+  text-align: center;
+}
+
+p {
+  border-style: solid;
+  border-color: lightsteelblue;
+  background: lightsteelblue;
+  width: 80%;
+  height: auto;
+  padding-top: 9%;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-bottom: 9%;
+}
+
+#place {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: right;
+  font-size: 200%;
+}
+
+#address {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#type {
+  font-family: "Courier New", Courier, monospace;
+}
+#box {
+    background-color: lightsteelblue;
+    color: black;
+    border: 2px solid lightsteelblue;
+}
+
+#box:hover {
+    background-color: white;
+    color: black;
+}

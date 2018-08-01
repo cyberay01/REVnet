@@ -2,13 +2,28 @@
 <html>
     <head>
         <title>REV NET Locations</title>
+        <link rel="stylesheet" href="/styles/locations.css">
     </head>
+
     <body>
+      <h1>REVNET <a href="/"> <img src='../styles/globeforlogo.jpg' class = 'globe'/></a></h1>
+        <ul>
+            <li><a href="/map">Map</a></li>
+            <li><a href="/locations">Add Location</a></li>
+            <li><a href = "{{logout_url}}">Sign Out</a></li>
+        </ul>
+    <p>
+      <h2>New Entry</h2>
         <form method="POST">
             <h3>Enter the location name: <input name="host_name"></h3>
-            <h3>Enter address: <input name="address"></h3>
+            <h3>Enter address(Street, City, State, Zip): <input name="address"></h3>
             <h3>Enter comment: <input name="comment"></h3>
-            <input type="submit" value="Add Location">
+            <input id='submitbutton' type="submit" value="Add Location">
+          </div>
         </form>
+    </p>
+
+        <img src='../styles/giphy.gif' id='earth'/>
+
     </body>
 </html>

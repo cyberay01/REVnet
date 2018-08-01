@@ -1,0 +1,113 @@
+/*p {
+  border-style: solid;
+  width: 400px;
+  height: 250px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
+  padding-bottom: -20px;
+  position: absolute;
+  top: 25%;
+  left: 30%;
+}*/
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  width: 2000px;
+  margin-top: auto;
+  margin-left: -10px;
+  background-color: lightsteelblue;
+}
+
+li {
+    float: left;
+}
+
+li a{
+    display: block;
+    color: #000000;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+li a:hover{
+    background-color: white;
+    color: black;
+}
+
+h1{
+  font-family: "ubuntu";
+  color: black;
+  margin-bottom: 0px;
+
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 70px;
+  font-size: 50px;
+  font-family: "jura", monospace;
+}
+
+h3{
+  text-align: center;
+  font-family: "varela round", monospace;
+}
+
+#submitbutton {
+    background-color: cornflowerblue; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 5px 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+#submitbutton {
+    background-color: cornflowerblue;
+    color: white;
+    border: 2px solid cornflowerblue;
+}
+
+#submitbutton:hover {
+    background-color: white;
+    color: grey;
+}
+
+p{
+  font-family: "ubuntu";
+  color: black;
+  margin-bottom: 0px;
+  text-align: center;
+
+}
+
+.globe{
+  height: 2.3%;
+  width: 2.3%;
+  margin-left: -10px;
+  margin-bottom: -2px;
+}
+
+#earth{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    width: 5%;
+}
