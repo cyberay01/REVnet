@@ -1,4 +1,6 @@
 // creating the callable function for the map
+let update_list;
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -18,6 +20,9 @@ function initMap() {
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
+
+            update_list = setInterval(refresh_locations(pos.lng, pos.lat), 3000);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -71,6 +76,10 @@ function initMap() {
         title: place.name,
         position: place.geometry.location
       }));
+
+      clearInterval(update_list);
+      clearBox('loc_list');
+      update_list = setInterval(refresh_locations(markers[markers.length - 1].position.lng(), markers[markers.length - 1].position.lat()));
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
