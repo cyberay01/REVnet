@@ -7,7 +7,7 @@ body {
     left: 28%;
 }
 #loginbutton {
-    background-color: rgb(20,0,0);opacity:0.5;;
+    background-color: white; opacity:0.5;;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -17,6 +17,7 @@ body {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    margin-left: -150px;
 }
 #jon {
   text-align: center;
@@ -25,17 +26,26 @@ body {
   padding-bottom: 15px;
 }
 
-h1{
+/*h1{
   color: grey;
   text-shadow: 2px 2px lightgrey;
   font-family: "Courier New", Courier, monospace;
   font-size: 50px;
   padding-bottom: 35px;
+}*/
+
+h2{
+  font-family: "ubuntu";
+  margin-left: -150px;
+  margin-top: 180px;
+  color: black;
+
 }
 
 h3{
-  color: grey;
+  color: black;
   font-family: "Courier New", Courier, monospace;
   font-size: 25px;
   padding-bottom: 45px;
+  margin-left: -160px;
 }
