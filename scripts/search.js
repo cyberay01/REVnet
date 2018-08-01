@@ -1,3 +1,4 @@
+// creating the callable function for the map
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
@@ -5,7 +6,7 @@ function initMap() {
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
-
+// if user allow locations --> find user on the map
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -20,6 +21,7 @@ function initMap() {
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
+          // if user doesn't allow then error
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
@@ -59,7 +61,7 @@ function initMap() {
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(50, 50)
+        scaledSize: new google.maps.Size(25, 25)
       };
 
       // Create a marker for each place.

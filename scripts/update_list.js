@@ -1,3 +1,4 @@
+// update new locations without user having to reload the page
 let last_refresh = new Date();
 
 function new_element(tag_name, attributes, children=[]){
