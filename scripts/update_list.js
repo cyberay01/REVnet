@@ -13,17 +13,16 @@ function new_element(tag_name, attributes, children=[]){
 }
 
 function insert_location(desc){
-  let new_div = new_element('div', {'class': 'location'}, [
-    new_element('text', {'class': 'host_name'}, [document.createTextNode('Name of Place: ' + desc['host_name'])]),
+  let new_div = new_element('p', {'id': 'box', 'class': 'location'}, [
+    new_element('text', {'id': 'place', 'class': 'host_name'}, [document.createTextNode(desc['host_name'])]),
     new_element('br'),
-    new_element('text', {'class': 'address'}, [document.createTextNode('Address: ' + desc['address'])]),
+    new_element('text', {'id': 'address', 'class': 'address'}, [document.createTextNode('Address: ' + desc['address'])]),
     new_element('br'),
-    new_element('text', {'class': 'comment'}, [document.createTextNode('Comment: ' + desc['comment'])]),
+    new_element('text', {'id': 'type','class': 'comment'}, [document.createTextNode('Comment: ' + desc['comment'])]),
     new_element('br'),
-    new_element('br')
   ]);
   let container = document.querySelector("#loc_list");
-  container.insertBefore(new_div, container.children[0]);
+  container.insertBefore(new_div, container.children[1]);
 }
 
 function clearBox(elementID)
