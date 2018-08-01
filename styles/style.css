@@ -7,18 +7,32 @@ body {
     left: 28%;
 }
 #loginbutton {
-    background-color: white; opacity:0.5;;
+    background-color: cornflowerblue; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 16px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
     cursor: pointer;
-    margin-left: -150px;
+    padding: 5px 5px;
 }
+
+#loginbutton {
+    background-color: cornflowerblue;
+    color: white;
+    border: 2px solid cornflowerblue;
+}
+
+#loginbutton:hover {
+    background-color: white;
+    color: grey;
+}
+
 #jon {
   text-align: center;
   height: 200px;
@@ -26,26 +40,17 @@ body {
   padding-bottom: 15px;
 }
 
-/*h1{
+h1{
   color: grey;
   text-shadow: 2px 2px lightgrey;
   font-family: "Courier New", Courier, monospace;
   font-size: 50px;
   padding-bottom: 35px;
-}*/
-
-h2{
-  font-family: "ubuntu";
-  margin-left: -150px;
-  margin-top: 180px;
-  color: black;
-
 }
 
 h3{
-  color: black;
+  color: grey;
   font-family: "Courier New", Courier, monospace;
   font-size: 25px;
   padding-bottom: 45px;
-  margin-left: -160px;
 }
