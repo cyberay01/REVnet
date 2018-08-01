@@ -1,0 +1,55 @@
+body {
+    font-style: italic;
+    font-size: 50px;
+    text-align: center;
+    position: fixed;
+    top: 8%;
+    left: 28%;
+}
+#loginbutton {
+    background-color: white; opacity:0.5;;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: -380px;
+}
+#jon {
+  text-align: center;
+  height: 200px;
+  width: 500px;
+  padding-bottom: 15px;
+}
+
+/*h1{
+  color: grey;
+  text-shadow: 2px 2px lightgrey;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+  padding-bottom: 35px;
+}*/
+
+h2{
+  font-family: "ubuntu";
+  margin-left: -320px;
+  margin-top: 130px;
+  color: black;
+  font-size: 130px;
+
+}
+
+h3{
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 40px;
+  padding-bottom: 45px;
+  margin-left: -360px;
+  text-align: center;
+  font-style: italic;
+  margin-top: -50px;
+}

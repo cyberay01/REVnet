@@ -1,5 +1,6 @@
 #map {
     height: 100%;
+<<<<<<< HEAD
     width: 70%;
     margin-left: auto;
 }
@@ -11,6 +12,21 @@ html, body {
 }
 ul {
     list-style-type: none;
+=======
+    width: 80%;
+}
+#loc_list {
+    flex: 1;
+    height: 100%;
+    padding: 10px;
+    float: left;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+>>>>>>> master
 }
 
 #pac-input {
@@ -19,3 +35,7 @@ ul {
   margin-top: 50px;
   margin-left: -105px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master

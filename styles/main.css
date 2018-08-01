@@ -1,9 +1,11 @@
 ul{
   list-style-type: none;
-  margin: 0;
   padding: 0;
   overflow: hidden;
-  width: 1000px;
+  width: 2000px;
+  margin-top: auto;
+  margin-left: -10px;
+  background-color: lightsteelblue;
 }
 
 li {
@@ -16,10 +18,51 @@ li a{
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    width: 100px;
+    width: 150px;
+    font-family: "Courier New", Courier, monospace;
 }
 
 li a:hover{
-    background-color: cornflowerblue;
-    color: white
+    background-color: white;
+    color: black;
+}
+
+h1{
+  font-family: "ubuntu";
+  color: black;
+  margin-bottom: 0px;
+
+}
+
+/*#jon {
+  text-align: center;
+  height: 200px;
+  width: 500px;
+  padding-top: 35px;
+  left: 32%;
+  top: -5%;
+  position: fixed;
+}*/
+
+p{
+  font-family: "Nunito Sans";
+  font-weight: bold;
+  font-size: 35px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.map{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 60%;
+}
+
+.globe{
+  height: 2.3%;
+  width: 2.3%;
+  margin-left: -10px;
+  margin-bottom: -2px;
 }
