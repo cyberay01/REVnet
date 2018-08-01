@@ -6,25 +6,37 @@ body {
     top: 8%;
     left: 28%;
 }
+
 #loginbutton {
-    background-color: white; opacity:0.5;;
+    background-color: lightsteelblue;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 32px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
     cursor: pointer;
+    padding: 5px 5px;
     margin-left: -380px;
+    width: 90px;
+    height: 50px;
 }
-#jon {
-  text-align: center;
-  height: 200px;
-  width: 500px;
-  padding-bottom: 15px;
+
+#loginbutton {
+    background-color: lightsteelblue;
+    color: white;
+    border: 2px solid lightsteelblue;
 }
+
+#loginbutton:hover {
+    background-color: white;
+    color: grey;
+}
+
 
 /*h1{
   color: grey;
