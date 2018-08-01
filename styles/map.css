@@ -12,3 +12,11 @@ html, body {
 ul {
     list-style-type: none;
 }
+
+#pac-input {
+  height: 4%;
+  width: 15%;
+  margin-top: 50px;
+  margin-left: -105px;
+}
+
