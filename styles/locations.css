@@ -1,4 +1,4 @@
-body {
+/*body {
   border-style: solid;
   width: 400px;
   height: 250px;
@@ -9,11 +9,53 @@ body {
   position: absolute;
   top: 25%;
   left: 30%;
+}*/
+
+ul{
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  width: 2000px;
+  margin-top: auto;
+  margin-left: -10px;
+  background-color: lightsteelblue;
 }
 
-h1 {
+li {
+    float: left;
+}
+
+li a{
+    display: block;
+    color: #000000;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    width: 150px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+li a:hover{
+    background-color: white;
+    color: black;
+}
+
+h1{
+  font-family: "ubuntu";
+  color: black;
+  margin-bottom: 0px;
+
+}
+
+h2 {
   text-align: center;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  font-size: 50px;
+}
+
+h3{
+  text-align: center;
 }
 
 #submitbutton {
@@ -30,6 +72,7 @@ h1 {
     transition-duration: 0.4s;
     cursor: pointer;
     padding: 5px 5px;
+    margin-left: 590px;
 }
 
 #submitbutton {
@@ -41,4 +84,18 @@ h1 {
 #submitbutton:hover {
     background-color: white;
     color: grey;
+}
+
+p{
+  font-family: "ubuntu";
+  color: black;
+  margin-bottom: 0px;
+
+}
+
+.globe{
+  height: 2.3%;
+  width: 2.3%;
+  margin-left: -10px;
+  margin-bottom: -2px;
 }
