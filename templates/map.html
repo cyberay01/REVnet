@@ -13,12 +13,13 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y&libraries=places&callback=initMap"
         async defer></script>  <!-- calling in the map api from google -->
         <div id="loc_list">
+          <h1>Entries</h1>
             {% for location in locations %}
-            <div class="location">
-                <text class="host_name">Name of Place: {{location.host_name}}</text><br>
-                <text class="address">Address: {{location.address}}</text><br>
-                <text class="comment">Comment: {{location.comment}}</text><br><br>
-            </div>
+            <p id='box' class="location">
+                <text id="place" class="host_name">{{location.host_name}}</text><br>
+                <text id="address"class="address">Address: {{location.address}}</text><br>
+                <text id="type" class="comment">Comment: {{location.comment}}</text><br>
+            </p>
             {% endfor %}
         </div>
         <script src="/scripts/update_list.js"></script>
