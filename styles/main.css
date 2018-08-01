@@ -1,9 +1,10 @@
 ul{
   list-style-type: none;
-  margin: 0;
   padding: 0;
   overflow: hidden;
   width: 1000px;
+  margin-top: 190px;
+  margin-left: 350px;
 }
 
 li {
@@ -16,7 +17,8 @@ li a{
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    width: 100px;
+    width: 150px;
+    font-family: "Courier New", Courier, monospace;
 }
 
 li a:hover{
@@ -29,3 +31,14 @@ li a:hover{
   height: 200px;
   width: 500px;
   padding-top: 15px;
+  left: 31%;
+  top: -5%;
+  position: fixed;
+}
+
+p{
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 70px;
+}
