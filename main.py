@@ -31,7 +31,7 @@ class MainPage(webapp2.RequestHandler):
                 "logout_url": logout_url,
                 "nickname": nickname
             }
-    #if the usr is not logged in, redirect to welcome
+    #if the user is not logged in, redirect to welcome
         else:
             self.redirect('/welcome')
         main_template = JINJA_ENVIRONMENT.get_template('templates/main.html')
