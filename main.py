@@ -72,11 +72,17 @@ class LocationPage(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if user:
-            pass
+            template_var = {}
+            user = users.get_current_user()
+            if user:
+                logout_url = users.create_logout_url('/')
+                template_var = {
+                    "logout_url": logout_url,
+                    }
         else:
             self.redirect('/welcome')
         locations_template = JINJA_ENVIRONMENT.get_template('templates/locations.html') #post data and add locations(html)
-        self.response.write(locations_template.render())
+        self.response.write(locations_template.render(template_var))
 
     def post(self):#upload as a datastore entries
         Locations(host_name=self.request.get('host_name'),
