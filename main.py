@@ -1,5 +1,6 @@
 import webapp2
 from google.appengine.api import users
+import googlemaps
 import jinja2
 import os
 from models import Locations
@@ -52,7 +53,7 @@ class MapPage(webapp2.RequestHandler):
         self.response.write(map_template.render({'locations': locations}))
 
 #show the uploaded locations after since
-class UpdatedMapPage(webapp2.RequestHandler):
+class UpdatedMapPage(webapp2.RequestHandler): #change since to the lat and lng of the geolocation so it can query nearby locations
     def get(self):
         self.response.content_type = 'text/json' #return text of json when accessed
         since = float(self.request.get('since'))#'since' is the query
@@ -79,10 +80,22 @@ class LocationPage(webapp2.RequestHandler):
         self.response.write(locations_template.render())
 
     def post(self):#upload as a datastore entries
-        Locations(host_name=self.request.get('host_name'),
-            address = self.request.get('address'),
-            comment = self.request.get('comment'),
-            created_at = datetime.datetime.now()).put()
+        gmaps = googlemaps.Client(key='AIzaSyAyGrl63eS4IjKBvTLF-gIh3NK2ik6xm_Y')
+        host_name = self.request.get('host_name')
+        address = self.request.get('address')
+        comment = self.request.get('comment')
+        created_at = datetime.datetime.now()
+
+        geocode_result = gmaps.geocode(address)
+        longitude = geocode_result['geometry']['location']['lng']
+        latitude = geocode_result['geometry']['location']['lat']
+
+        Locations(host_name=host_name,
+            address=address,
+            comment=comment,
+            created_at=created_at,
+            lat=latitude,
+            lng=longitude).put()
         self.redirect('/map') #redirected to the map
 
 app = webapp2.WSGIApplication([
