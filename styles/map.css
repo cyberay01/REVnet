@@ -1,20 +1,8 @@
 #map {
     height: 100%;
-<<<<<<< HEAD
-    width: 70%;
-    margin-left: auto;
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-ul {
-    list-style-type: none;
-=======
     width: 80%;
 }
+/* Optional: Makes the sample page fill the window. */
 #loc_list {
     flex: 1;
     height: 100%;
@@ -26,7 +14,6 @@ html, body {
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
->>>>>>> master
 }
 
 #pac-input {
@@ -35,7 +22,3 @@ html, body {
   margin-top: 50px;
   margin-left: -105px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> master
