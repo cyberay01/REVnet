@@ -79,6 +79,8 @@ class UpdatedMapPage(webapp2.RequestHandler): #change since to the lat and lng o
                     'host_name': location.host_name,
                     'address': location.address,
                     'comment': location.comment,
+                    'lat': location.lat,
+                    'lng': location.lng
                 })
         self.response.write(json.dumps(new_location_list)) #converts to json and shows pure json file /map can cation locations as a list
 

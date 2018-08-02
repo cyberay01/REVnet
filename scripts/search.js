@@ -4,7 +4,7 @@ let update_list;
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 6,
+          zoom: 15,
 		  mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var infoWindow = new google.maps.InfoWindow({map: map});
@@ -21,7 +21,7 @@ function initMap() {
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
 
-            update_list = setInterval(refresh_locations(pos.lng, pos.lat), 3000);
+            update_list = setInterval(refresh_locations(pos.lng, pos.lat,map), 1000);
 
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -57,7 +57,6 @@ function initMap() {
       marker.setMap(null);
     });
     markers = [];
-
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
@@ -79,7 +78,7 @@ function initMap() {
 
       clearInterval(update_list);
       clearBox('loc_list');
-      update_list = setInterval(refresh_locations(markers[markers.length - 1].position.lng(), markers[markers.length - 1].position.lat()));
+      update_list = setInterval(refresh_locations(markers[markers.length - 1].position.lng(), markers[markers.length - 1].position.lat(),map),1000);
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
