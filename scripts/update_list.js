@@ -30,12 +30,18 @@ function clearBox(elementID)
     document.getElementById(elementID).innerHTML = "<h1>Entries</h1>";
 }
 
-function refresh_locations(lng, lat) {
+function refresh_locations(lng, lat, map) {
   fetch("/updated_list?lng=" + lng + "&lat=" + lat, {'credentials': 'include'} )
     .then((data) => {return data.json();})
     .then((json) => {
+      rev_markers = [];
       for (let i in json) {
         insert_location(json[i]);
+        let marker = new google.maps.Marker({
+          position: {lat: json[i]['lat'], lng: json[i]['lng']},
+          map: map
+        })
+        rev_markers.push(marker);
       }
     });
   last_refresh = new Date();
