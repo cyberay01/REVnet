@@ -106,7 +106,7 @@ class LocationPage(webapp2.RequestHandler):
         comment = self.request.get('comment')
         created_at = datetime.datetime.now()
         encode_query = {"address": address}
-        geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCFfOmNAyrIBaMqakSMb6e2miGExkEHPTY&address=" + urllib.urlencode(encode_query)
+        geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCdoUTgBiki0q2SOugXKk1mfzYYDYW_CLo&address=" + urllib.urlencode(encode_query)
 
         fetch_result = urlfetch.fetch(geocode_url)
         geocode_result = json.loads(fetch_result.content)
@@ -120,9 +120,10 @@ class LocationPage(webapp2.RequestHandler):
                 created_at=created_at,
                 lat=latitude,
                 lng=longitude).put()
-
+            print("this shouldnt happen")
             self.redirect('/map') #redirected to the map
         else:
+            print(geocode_result)
             self.redirect('/locations')
 
 app = webapp2.WSGIApplication([
