@@ -27,7 +27,7 @@ function insert_location(desc){
 
 function clearBox(elementID)
 {
-    document.getElementById(elementID).innerHTML = "";
+    document.getElementById(elementID).innerHTML = "<h1>Entries</h1>";
 }
 
 function refresh_locations(lng, lat) {

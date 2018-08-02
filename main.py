@@ -8,6 +8,7 @@ import datetime
 import json
 from google.appengine.api import urlfetch
 import urllib
+import math
 
 json_file = open('api_keys.json')
 secrets = json_file.read()
@@ -61,20 +62,24 @@ class MapPage(webapp2.RequestHandler):
 class UpdatedMapPage(webapp2.RequestHandler): #change since to the lat and lng of the geolocation so it can query nearby locations
     def get(self):
         self.response.content_type = 'text/json' #return text of json when accessed
-        lat = self.request.get('lat')#'lat' and 'lng' are query
-        lng = self.request.get('lng')
-        
-        new_locations = Locations.query(Locations.lat <= float(lat) + 0.01 and Locations.lat >= float(lat) - 0.01 and Locations.lng <= float(lng) + 0.01 and Locations.lng >= float(lng) - 0.01).fetch()
+        lat = float(self.request.get('lat'))#'lat' and 'lng' are query
+        lng = float(self.request.get('lng'))
+        print(lat)
+        print(lng)
+        new_locations = Locations.query().fetch()
         new_location_list = []
         
         #dictionary is converted to json
 
         for location in new_locations:
-            new_location_list.append({
-                'host_name': location.host_name,
-                'address': location.address,
-                'comment': location.comment,
-            })
+            print(location.lat)
+            print(location.lng)
+            if location.lat <= lat + 0.05 and location.lat >= lat - 0.05 and location.lng <= lng + 0.05 and location.lng >= lng - 0.05:
+                new_location_list.append({
+                    'host_name': location.host_name,
+                    'address': location.address,
+                    'comment': location.comment,
+                })
         self.response.write(json.dumps(new_location_list)) #converts to json and shows pure json file /map can cation locations as a list
 
 class LocationPage(webapp2.RequestHandler):
